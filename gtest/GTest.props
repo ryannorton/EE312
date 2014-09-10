@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <GTestDir>$(SolutionDir)\..\..\..\gtest</GTestDir> 
+  </PropertyGroup>
+  <PropertyGroup>
+    <IncludePath>$(SolutionDir);$(GTestDir);$(GTestDir)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(GTestDir)\SecretTests\$(SolutionName);$(GTestDir)\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessToFile>false</PreprocessToFile>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>gtest.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="GTestDir">
+      <Value>$(GTestDir)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
